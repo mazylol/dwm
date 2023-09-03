@@ -103,7 +103,7 @@ static const char *dmenucmd[] = {
 static const char *termcmd[] = {"kitty", NULL};
 static const char *screenshot[] = {"flameshot", "gui", NULL};
 static const char *browser[] = {"firefox", NULL};
-static const char *music[] = {"spotify", NULL};
+static const char *music[] = {"cider", NULL};
 static const char *lock[] = {"i3lock", "-c", "000000", NULL};
 static const char *discord[] = {"discord", NULL};
 static const char *audio[] = {"pavucontrol", NULL};
@@ -115,9 +115,9 @@ static const char *rofilaunch[] = {"rofi", "-show", "drun", NULL};
 static const char *jbt[] = {"jetbrains-toolbox", NULL};
 static const char *emacs[] = {"emacs", NULL};
 
-static const char *upvol[] = {"volup", NULL};
-static const char *downvol[] = {"voldown", NULL};
-static const char *mutevol[] = {"volmute", NULL};
+static const char *upvol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL};
+static const char *downvol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL};
+static const char *mutevol[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -125,6 +125,7 @@ static Key keys[] = {
     /* dwm stuff */
     {MODKEY, XK_p, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
+    {MODKEY | ShiftMask, XK_p, spawn, {.v = rofilaunch}},
 
     /* app launchers */
     {MODKEY | ControlMask, XK_Return, spawn, {.v = screenshot}},
@@ -137,7 +138,6 @@ static Key keys[] = {
     {MODKEY | ControlMask, XK_k, spawn, {.v = keepassxc}},
     {MODKEY | ControlMask, XK_v, spawn, {.v = virtmanager}},
     {MODKEY | ControlMask, XK_c, spawn, {.v = code}},
-    {MODKEY | ControlMask, XK_r, spawn, {.v = rofilaunch}},
     {MODKEY | ControlMask, XK_j, spawn, {.v = jbt}},
     {MODKEY | ControlMask, XK_e, spawn, {.v = emacs}},
 
