@@ -100,19 +100,17 @@ static char dmenumon[2] =
 static const char *dmenucmd[] = {
     "dmenu_run", "-m",      dmenumon, "-fn",    dmenufont, "-nb",     col_gray1,
     "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray4, NULL};
-static const char *termcmd[] = {"kitty", NULL};
+static const char *termcmd[] = {"kitty", "--session", "kitty.session", NULL};
 static const char *screenshot[] = {"flameshot", "gui", NULL};
 static const char *browser[] = {"firefox", NULL};
-static const char *music[] = {"cider", NULL};
-static const char *lock[] = {"i3lock", "-c", "000000", NULL};
-static const char *discord[] = {"discord", NULL};
+static const char *lock[] = {"lockscreen", NULL};
+static const char *discord[] = {"Discord", NULL};
 static const char *audio[] = {"pavucontrol", NULL};
 static const char *files[] = {"thunar", NULL};
 static const char *keepassxc[] = {"keepassxc", NULL};
 static const char *virtmanager[] = {"virt-manager", NULL};
-static const char *code[] = {"code", NULL};
+static const char *code[] = {"code-oss", NULL};
 static const char *rofilaunch[] = {"rofi", "-show", "drun", NULL};
-static const char *jbt[] = {"jetbrains-toolbox", NULL};
 static const char *emacs[] = {"emacs", NULL};
 
 static const char *upvol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL};
@@ -130,7 +128,6 @@ static Key keys[] = {
     /* app launchers */
     {MODKEY | ControlMask, XK_Return, spawn, {.v = screenshot}},
     {MODKEY | ControlMask, XK_w, spawn, {.v = browser}},
-    {MODKEY | ControlMask, XK_m, spawn, {.v = music}},
     {MODKEY | ControlMask, XK_l, spawn, {.v = lock}},
     {MODKEY | ControlMask, XK_d, spawn, {.v = discord}},
     {MODKEY | ControlMask, XK_a, spawn, {.v = audio}},
@@ -138,7 +135,6 @@ static Key keys[] = {
     {MODKEY | ControlMask, XK_k, spawn, {.v = keepassxc}},
     {MODKEY | ControlMask, XK_v, spawn, {.v = virtmanager}},
     {MODKEY | ControlMask, XK_c, spawn, {.v = code}},
-    {MODKEY | ControlMask, XK_j, spawn, {.v = jbt}},
     {MODKEY | ControlMask, XK_e, spawn, {.v = emacs}},
 
     /* volume */
