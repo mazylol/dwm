@@ -112,6 +112,7 @@ static const char *virtmanager[] = {"virt-manager", NULL};
 static const char *code[] = {"code", NULL};
 static const char *rofilaunch[] = {"rofi", "-show", "drun", NULL};
 static const char *emacs[] = {"emacs", NULL};
+static const char *spotify[] = {"spotify", NULL};
 
 static const char *upvol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL};
 static const char *downvol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL};
@@ -136,6 +137,7 @@ static Key keys[] = {
     {MODKEY | ControlMask, XK_v, spawn, {.v = virtmanager}},
     {MODKEY | ControlMask, XK_c, spawn, {.v = code}},
     {MODKEY | ControlMask, XK_e, spawn, {.v = emacs}},
+    {MODKEY | ControlMask, XK_m, spawn, {.v = spotify}},
 
     /* volume */
     {0, XF86XK_AudioLowerVolume, spawn, {.v = downvol}},
